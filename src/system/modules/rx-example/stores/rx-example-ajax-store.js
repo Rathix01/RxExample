@@ -16,7 +16,7 @@ const toListenersFor = R.curry((listener2, listener3, state) => {
 	return Rx.Observable.zip(listener2, listener3).map(toStateWithId("2,3"));
 }); 
 
-// map actions from example actions to url strings;
+// map actions to url strings;
 const inputUrl1 = RxExampleActions.input1.mapTo('https://api.github.com/users');
 const inputUrl2 = RxExampleActions.input2.mapTo('https://api.github.com');
 const inputUrl3 = RxExampleActions.input3.mapTo('https://api.github.com/users/defunkt');
@@ -44,4 +44,3 @@ Rx.Observable.zip(ajaxRequest1, ajaxRequest2, ajaxRequest3)
 ajaxRequest4.switchMap(toListenersFor(ajaxRequest2, ajaxRequest3))
 	.map(toStateWithKey("conditional zip"))
 	.subscribe(toConsoleLog);
-	
