@@ -3,9 +3,7 @@ import RxExample from '../system/modules/rx-example';
 
 class App extends Component {
   render() {
-    return <div>
-    	<RxExample id="RxExample" />
-    </div>;
+    return <RxExample id="RxExample" />
   }
 };
 
